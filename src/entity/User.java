@@ -1,68 +1,58 @@
 package entity;
 
-import javax.servlet.http.Cookie;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-
 public class User {
+    private String userLogin;
+    private String userPassword;
+    private int userRole;
+    private String userFirstName;
+    private String userLastName;
+    private String userImageUrl;
 
-    private Cookie cookie = null;
-    private String login = null;
-    private String pass = null;
-
-    {
-        File file = new File("D:/Projects/IOTproject/resources/resources.properties");
-        try(InputStream input = new FileInputStream(file)){
-            Properties properties = new Properties();
-            properties.load(input);
-            properties.setProperty("1", "2");
-            login = properties.getProperty("login");
-            pass = properties.getProperty("pass");
-            cookie = new Cookie("userInfo", properties.getProperty("userInfo"));
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("no such file");
-        }
+    public String getUserLogin() {
+        return userLogin;
     }
 
-    public void setPass(String pass) {
-        try(InputStream input = new FileInputStream("/userConfig/config.properties")){
-            Properties properties = new Properties();
-            properties.load(input);
-            properties.setProperty("pass", pass);
-        }  catch (IOException e) {
-            e.printStackTrace();
-        }
-        this.pass = pass;
+    public void setUserLogin(String userLogin) {
+        this.userLogin = userLogin;
     }
 
-    public void setCookie(Cookie cookie) {
-        this.cookie = cookie;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setLogin(String login) {
-        try(InputStream input = new FileInputStream("/userConfig/config.properties")){
-            Properties properties = new Properties();
-            properties.load(input);
-            properties.setProperty("login", login);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        this.login = login;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public String getPass() {
-        return pass;
+    public int getUserRole() {
+        return userRole;
     }
 
-    public String getLogin() {
-        return login;
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
     }
 
-    public Cookie getCookie() {
-        return cookie;
+    public String getUserFirstName() {
+        return userFirstName;
+    }
+
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
+
+    public String getUserImageUrl() {
+        return userImageUrl;
+    }
+
+    public void setUserImageUrl(String userImageUrl) {
+        this.userImageUrl = userImageUrl;
     }
 }
