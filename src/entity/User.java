@@ -1,12 +1,21 @@
 package entity;
 
 public class User {
+    private Long userID;
     private String userLogin;
     private String userPassword;
     private int userRole;
     private String userFirstName;
     private String userLastName;
     private String userImageUrl;
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
 
     public String getUserLogin() {
         return userLogin;
