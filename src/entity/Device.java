@@ -7,15 +7,15 @@ import java.util.List;
 public class Device {
     private List<Function> inputFunctions= new ArrayList<>();
     private List<Function> outputFunctions = new ArrayList<>();
+    private Long deviceID;
     private String deviceName;
-    private BigInteger User;
 
-    public BigInteger getUser() {
-        return User;
+    public Long getDeviceID() {
+        return deviceID;
     }
 
-    public void setUser(BigInteger user) {
-        User = user;
+    public void setDeviceID(Long deviceID) {
+        this.deviceID = deviceID;
     }
 
     public List<Function> getInputFunctions() {

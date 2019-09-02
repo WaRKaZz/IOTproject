@@ -9,11 +9,24 @@ import java.sql.SQLException;
 
 public class UserDAO {
     private final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
+    private final static String GET_USER_BY_LOGIN_SQL = "SELECT * FROM  USER WHERE USER_LOGIN = ?";
+    private final static String GET_USER_BY_ID_SQL = "SELECT * FROM  USER WHERE USER_ID = ?";
+    private final static String ADD_NEW_USER_SQL = "INSERT INTO USER" +
+            " (USER_LOGIN, USER_ROLE, USER_PASSWORD, USER_FIRST_NAME, USER_LAST_NAME, USER_IMAGE_URL)" +
+            " VALUES (?, ?, ?, ?, ?)";
+    private final static String UPDATE_USER_SQL = "UPDATE USER SET USER_LOGIN = ?," +
+                                                                    " USER_ROLE = ?," +
+                                                                    " USER_PASSWORD = ?," +
+                                                                    " USER_FIRST_NAME = ?," +
+                                                                    " USER_LAST_NAME = ?," +
+                                                                    " USER_IMAGE_URL = ?," +
+                                                                    " USER_ID = ?";
+
 
     public User getUserByLogin(String userLogin) throws SQLException {
         User user = new User();
         Connection connection = CONNECTION_POOL.retrieve();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM  USER WHERE USER_LOGIN = ?")){
+        try (PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_BY_LOGIN_SQL)){
             preparedStatement.setString(1,userLogin);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
@@ -29,7 +42,7 @@ public class UserDAO {
     public User getUserByID(long userId) throws SQLException {
         User user = new User();
         Connection connection = CONNECTION_POOL.retrieve();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM  USER WHERE USER_ID = ?")){
+        try (PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_BY_ID_SQL)){
             preparedStatement.setLong(1, userId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
@@ -44,8 +57,8 @@ public class UserDAO {
 
     public void addNewUser(User user) throws SQLException {
         Connection connection = CONNECTION_POOL.retrieve();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO USER (USER_LOGIN, USER_ROLE, USER_PASSWORD, USER_FIRST_NAME, USER_LAST_NAME, USER_IMAGE_URL) VALUES (?, ?, ?, ?, ?)")){
-            confiureUserDatabase(user, preparedStatement);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_USER_SQL)){
+            configureUserStatement(user, preparedStatement);
             preparedStatement.executeUpdate();
         } finally {
             CONNECTION_POOL.putBack(connection);
@@ -55,8 +68,8 @@ public class UserDAO {
     public void updateUser(User user) throws SQLException {
         final int USER_ID_POSITION = 6;
         Connection connection = CONNECTION_POOL.retrieve();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE USER SET USER_LOGIN = ?, USER_ROLE = ?, USER_PASSWORD = ?, USER_FIRST_NAME = ?, USER_LAST_NAME = ?, USER_IMAGE_URL = ?, USER_ID = ?")){
-            confiureUserDatabase(user, preparedStatement);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_SQL)){
+            configureUserStatement(user, preparedStatement);
             preparedStatement.setLong(USER_ID_POSITION, user.getUserID());
             preparedStatement.executeUpdate();
         } finally {
@@ -76,7 +89,7 @@ public class UserDAO {
         return user;
     }
 
-    private void confiureUserDatabase(User user, PreparedStatement preparedStatement) throws SQLException{
+    private void configureUserStatement(User user, PreparedStatement preparedStatement) throws SQLException{
         preparedStatement.setString(1, user.getUserLogin());
         preparedStatement.setInt(2, user.getUserRole());
         preparedStatement.setString(3, user.getUserPassword());

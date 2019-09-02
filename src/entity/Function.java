@@ -4,18 +4,27 @@ import java.math.BigInteger;
 
 public class Function {
     private boolean functionType;
+    private boolean isFunctionInput;
     private String functionName;
-    private boolean functionBoolean;
+    private boolean functionTrue;
     private int functionInteger;
     private String functionText;
-    private BigInteger functionId;
+    private Long functionId;
 
-    public boolean isFunctionBoolean() {
-        return functionBoolean;
+    public boolean isFunctionInput() {
+        return isFunctionInput;
     }
 
-    public void setFunctionBoolean(boolean functionBoolean) {
-        this.functionBoolean = functionBoolean;
+    public void setFunctionInput(boolean functionInput) {
+        isFunctionInput = functionInput;
+    }
+
+    public boolean isFunctionTrue() {
+        return functionTrue;
+    }
+
+    public void setFunctionTrue(boolean functionBoolean) {
+        this.functionTrue = functionBoolean;
     }
 
     public int getFunctionInteger() {
@@ -34,20 +43,12 @@ public class Function {
         this.functionText = functionText;
     }
 
-    public BigInteger getFunctionId() {
+    public Long getFunctionId() {
         return functionId;
     }
 
-    public void setFunctionId(BigInteger functionId) {
+    public void setFunctionId(Long functionId) {
         this.functionId = functionId;
-    }
-
-    public boolean isFunctionType() {
-        return functionType;
-    }
-
-    public void setFunctionType(boolean functionType) {
-        this.functionType = functionType;
     }
 
     public String getFunctionName() {
