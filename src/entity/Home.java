@@ -5,40 +5,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Home {
-    private List<Device> home_installed_devices = new ArrayList<>();
-    private Long home_id;
-    private String home_name;
-    private String home_address;
+    private List<Device> homeInstalledDevices = new ArrayList<>();
+    private Long homeID;
+    private String homeName;
+    private String homeAddress;
 
-    public List<Device> getHome_installed_devices() {
-        return home_installed_devices;
+    public List<Device> getHomeInstalledDevices() {
+        return homeInstalledDevices;
     }
 
-    public void setHome_installed_devices(List<Device> home_installed_devices) {
-        this.home_installed_devices = home_installed_devices;
+    public void setHomeInstalledDevices(List<Device> homeInstalledDevices) {
+        this.homeInstalledDevices = homeInstalledDevices;
     }
 
-    public Long getHome_id() {
-        return home_id;
+    public Long getHomeID() {
+        return homeID;
     }
 
-    public void setHome_id(Long home_id) {
-        this.home_id = home_id;
+    public void setHomeID(Long homeID) {
+        this.homeID = homeID;
     }
 
-    public String getHome_name() {
-        return home_name;
+    public String getHomeName() {
+        return homeName;
     }
 
-    public void setHome_name(String home_name) {
-        this.home_name = home_name;
+    public void setHomeName(String homeName) {
+        this.homeName = homeName;
     }
 
-    public String getHome_address() {
-        return home_address;
+    public String getHomeAddress() {
+        return homeAddress;
     }
 
-    public void setHome_address(String home_address) {
-        this.home_address = home_address;
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
     }
 }

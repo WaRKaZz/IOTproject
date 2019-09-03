@@ -12,7 +12,7 @@ public class ConnectionPool  {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String USER = "root";
     private static final String PASSWORD = "1234";
-    private static final int CONNECTION_AMOUNT = 5;
+    private static final int CONNECTION_AMOUNT = 30;
     private BlockingQueue<Connection> connectionQueue = new ArrayBlockingQueue<>(CONNECTION_AMOUNT);
 
     public static ConnectionPool getInstance(){

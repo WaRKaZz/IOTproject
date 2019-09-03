@@ -1,14 +1,39 @@
 package entity;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Device {
-    private List<Function> inputFunctions= new ArrayList<>();
-    private List<Function> outputFunctions = new ArrayList<>();
+    private List<Function> functions = new ArrayList<>();
     private Long deviceID;
     private String deviceName;
+    private String deviceDefinitionName;
+    private Long deviceHomePlacedID;
+    private Long deviceDefinitionID;
+
+    public Long getDeviceHomePlacedID() {
+        return deviceHomePlacedID;
+    }
+
+    public void setDeviceHomePlacedID(Long deviceHomePlacedID) {
+        this.deviceHomePlacedID = deviceHomePlacedID;
+    }
+
+    public Long getDeviceDefinitionID() {
+        return deviceDefinitionID;
+    }
+
+    public void setDeviceDefinitionID(Long deviceDefinitionID) {
+        this.deviceDefinitionID = deviceDefinitionID;
+    }
+
+    public String getDeviceDefinitionName() {
+        return deviceDefinitionName;
+    }
+
+    public void setDeviceDefinitionName(String deviceDefinitionName) {
+        this.deviceDefinitionName = deviceDefinitionName;
+    }
 
     public Long getDeviceID() {
         return deviceID;
@@ -18,20 +43,12 @@ public class Device {
         this.deviceID = deviceID;
     }
 
-    public List<Function> getInputFunctions() {
-        return inputFunctions;
+    public List<Function> getFunctions() {
+        return functions;
     }
 
-    public void setInputFunctions(List<Function> inputFunctions) {
-        this.inputFunctions = inputFunctions;
-    }
-
-    public List<Function> getOutputFunctions() {
-        return outputFunctions;
-    }
-
-    public void setOutputFunctions(List<Function> outputFunctions) {
-        this.outputFunctions = outputFunctions;
+    public void setFunctions(List<Function> functions) {
+        this.functions = functions;
     }
 
     public String getDeviceName() {

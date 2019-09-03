@@ -1,6 +1,5 @@
 package entity;
 
-import java.math.BigInteger;
 
 public class Function {
     private boolean functionType;
