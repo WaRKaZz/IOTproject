@@ -4,6 +4,15 @@ public class FunctionDefinition {
     private Long functionDefinitionID;
     private String functionName;
     private boolean isInput;
+    private Long deviceDefinitionID;
+
+    public Long getDeviceDefinitionID() {
+        return deviceDefinitionID;
+    }
+
+    public void setDeviceDefinitionID(Long deviceDefinitionID) {
+        this.deviceDefinitionID = deviceDefinitionID;
+    }
 
     public Long getFunctionDefinitionID() {
         return functionDefinitionID;
