@@ -2,7 +2,6 @@ package entity;
 
 
 public class Function {
-    private boolean functionType;
     private boolean isFunctionInput;
     private String functionName;
     private boolean functionTrue;
@@ -16,10 +15,6 @@ public class Function {
 
     public void setFunctionInput(boolean functionInput) {
         isFunctionInput = functionInput;
-    }
-
-    public boolean isFunctionTrue() {
-        return functionTrue;
     }
 
     public void setFunctionTrue(boolean functionBoolean) {

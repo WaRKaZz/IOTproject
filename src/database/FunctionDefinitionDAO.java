@@ -1,8 +1,5 @@
 package database;
 
-import entity.Device;
-import entity.DeviceDefinition;
-import entity.Function;
 import entity.FunctionDefinition;
 
 import java.sql.Connection;

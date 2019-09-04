@@ -1,8 +1,6 @@
 package database;
 
-import entity.Device;
 import entity.DeviceDefinition;
-import sun.dc.pr.PRError;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
