@@ -1,13 +1,13 @@
 package entity;
 
 public class User {
-    private Long userID;
-    private String userLogin;
-    private String userPassword;
-    private int userRole;
-    private String userFirstName;
-    private String userLastName;
-    private String userImageUrl;
+    private Long userID = Long.getLong("0");
+    private String userLogin = "";
+    private String userPassword = "";
+    private int userRole = 0;
+    private String userFirstName = "";
+    private String userLastName = "";
+    private String userImageUrl = "";
 
     public Long getUserID() {
         return userID;

@@ -9,7 +9,7 @@ import java.util.concurrent.BlockingQueue;
 public class ConnectionPool  {
     private static final ConnectionPool instance = new ConnectionPool();
     private static final String URL = "jdbc:mysql://localhost:3306/";
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DRIVER = "";
     private static final String USER = "root";
     private static final String PASSWORD = "1234";
     private static final int CONNECTION_AMOUNT = 30;
@@ -21,9 +21,9 @@ public class ConnectionPool  {
 
     public ConnectionPool(){
         try{
-            Class.forName(DRIVER);
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e){
-            System.out.println("Can not find driver");
+            e.printStackTrace();
         }
         for (int i = 1; i < CONNECTION_AMOUNT; i++){
             connectionQueue.add(getConnection());

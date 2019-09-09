@@ -8,9 +8,18 @@ public class ServiceFactory {
 
     static {
         FACTORY_MAP.put("/login", new LoginService());
+        FACTORY_MAP.put("/logout", new LogoutService());
+        FACTORY_MAP.put("/index", new IndexService());
+
     }
 
     public static synchronized Service getService(String serviceRequest){
-        return FACTORY_MAP.get(serviceRequest);
+        Service service;
+        if (FACTORY_MAP.containsKey(serviceRequest)){
+            service = FACTORY_MAP.get(serviceRequest);
+        } else {
+            service = new PageNotFoundService();
+        }
+        return service;
     }
 }

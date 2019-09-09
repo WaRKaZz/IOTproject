@@ -12,13 +12,4 @@
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <filter>
-        <filter-name>UserFilter</filter-name>
-        <filter-class>filter.UserFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>UserFilter</filter-name>
-        <servlet-name>Servlet</servlet-name>
-    </filter-mapping>
 </web-app>

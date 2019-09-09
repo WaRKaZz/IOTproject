@@ -15,16 +15,19 @@ import java.sql.SQLException;
 
 public class Servlet extends HttpServlet {
 
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String serviceRequest = request.getRequestURI();
-        Service service = ServiceFactory.getService(serviceRequest);
+        Service service = ServiceFactory.getService(request.getRequestURI());
         try {
             service.execute(request,response);
         } catch (SQLException e) {
+            System.out.println("My main is SQLException");
             // LOGSQL
         } catch (IOException e){
             // LOGIO
+            System.out.println("My main is IOException");
         }
 
     }
@@ -35,3 +38,4 @@ public class Servlet extends HttpServlet {
     }
 
 }
+
